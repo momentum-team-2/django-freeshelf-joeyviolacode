@@ -7,14 +7,14 @@
         {% for category in categories %}
             <a href="{% url 'list_books_category' pk=category.pk %}" class="category-link">{{category.name}}</a>
         {% endfor%}
+        <p>List books by:
+            <a href="{% url 'list_books_oldest' %}">oldest </a>|
+            <a href="{% url 'list_books' %}">newest </a>|
+            <a href="{% url 'list_books_title' %}">title</a>
+        </p>
     </p>
-    <p>List books by:
-        <a href="{% url 'list_books_oldest' %}">oldest </a>|
-        <a href="{% url 'list_books' %}">newest </a>|
-        <a href="{% url 'list_books_title' %}">title</a>
-    </p>
-    <p class="header-p">Recently-added Books</p>
-    {% for book in books %}
+    <p class="header-p">Books on {{category.name}}:</p>
+    {% for book in category.books.all %}
     <div class="book-pane">
         <div class="book-info">
             <p class="book-title">
@@ -28,9 +28,7 @@
             <p>
                 <span class="favorited r-border line-pad">Favorited X times</span>
                 <span class="date l-border r-border line-pad">Added on {{book.date_added}}</span>
-                <span class="category l-border line-pad">Category: 
-                    <a class="category-link" href="{% url 'list_books_category' pk=book.category.pk %}">{{book.category.name}}</a>
-                </span>
+                <span class="category l-border line-pad">Category: <a class="category-link" href="#">{{book.category.name}}</a></span>
             </p>
         </div>  
     </div>

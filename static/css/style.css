@@ -4,19 +4,29 @@ body {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    font-family: 'Open Sans', sans-serif;
 }
 
 header {
-    background-color: purple;
+    background-color: indigo;
     height: 10%;
     margin: 0px 0px;
     color: white;
+}
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
 }
 
 .header-left {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.header-right a {
+    color: white;
 }
 
 .header-p {
@@ -60,7 +70,17 @@ header {
      padding: 3px 10px;
  }
 
+ .v-center {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+ }
+
  .favorited {
      color: grey;
  }
+
+.welcome-el {
+    padding-right: 25px;
+}
 
