@@ -13,7 +13,7 @@ class Book(models.Model):
     url = models.CharField(max_length=255)
     description = models.TextField()
     favorite = models.BooleanField(default=False)
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name="category")
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name="books")
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
