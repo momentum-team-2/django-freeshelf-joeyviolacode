@@ -10,7 +10,7 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
-    url = models.CharField(max_length=255)
+    url = models.CharField(max_length=255, unique=True)
     description = models.TextField()
     favorite = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name="books")
