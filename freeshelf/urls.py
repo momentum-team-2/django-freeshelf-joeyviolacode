@@ -20,6 +20,7 @@ from core import views as core_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include("registration.backends.simple.urls")),
     path('', core_views.list_books, name="list_books")
 ]
 

@@ -2,4 +2,65 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
 }
+
+header {
+    background-color: purple;
+    height: 10%;
+    margin: 0px 0px;
+    color: white;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.header-p {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
+.body-div {
+    height: 90%;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.book-pane {
+    padding: 5px 0px;
+}
+
+.book-title {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.book-description {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.book-info-area {
+    padding-left: 15px;
+}
+
+.l-border {
+    border-left: 1px solid black;
+}
+
+.r-border {
+    border-right: 1px solid black;
+}
+ .line-pad {
+     padding: 3px 10px;
+ }
+
+ .favorited {
+     color: grey;
+ }
+
