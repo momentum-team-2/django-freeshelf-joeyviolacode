@@ -28,6 +28,7 @@ urlpatterns = [
     path('books/show_book/<int:pk>', core_views.show_book, name="show_book"),
     path('books/mark_favorite/<int:pk>', core_views.mark_favorite, name="mark_favorite"),
     path('users/<int:pk>', core_views.show_user, name="show_user"),
+    path('books/comment/<int:pk>', core_views.add_comment, name="add_comment"),
 ]
 
 if settings.DEBUG:

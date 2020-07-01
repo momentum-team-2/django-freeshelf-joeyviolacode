@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book, Category
 from users.models import User
-from .forms import BookForm
+from .forms import BookForm, CommentForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def list_books(request):
     books = Book.objects.order_by("-id")
     categories = Category.objects.all()
@@ -27,12 +29,25 @@ def list_books_title(request):
 def show_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     categories = Category.objects.all()
-    return render(request, 'core/show_book.html', { "book" : book, "categories" : categories })
+    form = CommentForm()
+    return render(request, 'core/show_book.html', { "book" : book, "categories" : categories, "form":form })
 
 def show_user(request, pk): 
     user = get_object_or_404(User, pk=pk)
     comments = user.comments.all
     return render(request, 'core/show_user.html', { "user": user, "comments" : comments})
+
+def add_comment(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    user = request.user
+    form = CommentForm(data=request.POST)
+    comment = None
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.book = book
+        comment.author = user
+        comment.save()
+    return redirect(to="show_book", pk=pk)
 
 
 

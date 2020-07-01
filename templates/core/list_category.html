@@ -30,6 +30,9 @@
                 <span class="favorited r-border line-pad">Favorited {{book.fave_count}} times</span>
                 <span class="date l-border r-border line-pad">Added on {{book.date_added}}</span>
                 <span class="category l-border line-pad">Category: <a class="category-link" href="#">{{book.category.name}}</a></span>
+                <span class="detail l-border l-marg line-pad">  
+                    <a class="detail-link" href="{% url 'show_book' pk=book.pk %}">See Book Detail</a>
+                </span>
             </p>
         </div>  
     </div>
