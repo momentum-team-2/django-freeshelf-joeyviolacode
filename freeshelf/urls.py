@@ -26,6 +26,7 @@ urlpatterns = [
     path('books/title', core_views.list_books_title, name="list_books_title"),
     path('category/<int:pk>', core_views.list_books_category, name="list_books_category"),
     path('books/show_book/<int:pk>', core_views.show_book, name="show_book"),
+    path('books/mark_favorite/<int:pk>', core_views.mark_favorite, name="mark_favorite")
 ]
 
 if settings.DEBUG:

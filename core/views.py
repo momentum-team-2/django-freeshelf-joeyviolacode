@@ -28,4 +28,8 @@ def show_book(request, pk):
     categories = Category.objects.all()
     return render(request, 'core/show_book.html', { "book" : book, "categories" : categories })
 
+def mark_favorite(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    user = request.user
+    pass
 
