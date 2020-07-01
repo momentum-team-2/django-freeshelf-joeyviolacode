@@ -5,7 +5,7 @@
 <div class="book-list centerer">
     <p>Books by Category:
         {% for category in categories %}
-        <a href="{% url 'list_books_category' pk=category.pk %}" class="category-link">{{category.name}}</a> |
+        <a href="{% url 'list_books_category' slug=category.slug %}" class="category-link">{{category.name}}</a> |
         {% endfor %}
         <a href="{% url 'list_books' %}" class="category-link">All</a>
     </p>

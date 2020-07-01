@@ -16,8 +16,8 @@ def list_books_oldest(request):
     categories = Category.objects.all()
     return render(request, 'core/list_books.html', { "books" : books, "categories" : categories })
 
-def list_books_category(request, pk):
-    category = get_object_or_404(Category, pk=pk)
+def list_books_category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
     categories = Category.objects.all()
     return render(request, 'core/list_category.html', {"category":category, "categories":categories})
 
