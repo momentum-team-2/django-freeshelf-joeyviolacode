@@ -19,3 +19,6 @@ class CommentForm(forms.ModelForm):
         fields = [
             "body"
         ]
+        labels = {
+            "body" : "",
+        }
