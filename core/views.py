@@ -22,3 +22,10 @@ def list_books_title(request):
     books = Book.objects.order_by("title")
     categories = Category.objects.all()
     return render(request, 'core/list_books.html', { "books" : books, "categories" : categories })
+
+def show_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    categories = Category.objects.all()
+    return render(request, 'core/show_book.html', { "book" : book, "categories" : categories })
+
+

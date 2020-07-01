@@ -24,7 +24,8 @@ urlpatterns = [
     path('', core_views.list_books, name="list_books"),
     path('books/oldest', core_views.list_books_oldest, name='list_books_oldest'),
     path('books/title', core_views.list_books_title, name="list_books_title"),
-    path('category/<int:pk>', core_views.list_books_category, name="list_books_category")
+    path('category/<int:pk>', core_views.list_books_category, name="list_books_category"),
+    path('books/show_book/<int:pk>', core_views.show_book, name="show_book"),
 ]
 
 if settings.DEBUG:
