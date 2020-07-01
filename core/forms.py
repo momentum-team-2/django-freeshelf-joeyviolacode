@@ -8,6 +8,7 @@ class BookForm(forms.ModelForm):
             "title",
             "author",
             "url",
+            "image_url",
             "description",
             "category",
         ]

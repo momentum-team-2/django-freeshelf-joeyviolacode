@@ -14,6 +14,7 @@ class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     url = models.CharField(max_length=255, unique=True)
+    image_url = models.CharField(max_length=1023, null=True, blank=True)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name="books")
     date_added = models.DateTimeField(auto_now_add=True)
