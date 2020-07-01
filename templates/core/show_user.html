@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="book-list centerer">
+    <p>Books by Category:
+        {% for category in categories %}
+        <a href="{% url 'list_books_category' pk=category.pk %}" class="category-link">{{category.name}}</a> |
+        {% endfor %}
+        <a href="{% url 'list_books' %}" class="category-link">All</a>
+    </p>
+    <p>List books by:
+        <a href="{% url 'list_books_oldest' %}">oldest </a>|
+        <a href="{% url 'list_books' %}">newest </a>|
+        <a href="{% url 'list_books_title' %}">title</a>
+    </p>
+</div>
+<div class="comments-block">
+    <h3>All comments by {{user.username}}</h3>
+    {% for comment in comments%}
+    <p class="comment">{{comment.body}}</p>
+    <p class="comment-info">on {{comment.date_added}} about <a href="{% url 'show_book' pk=comment.book.pk %}">{{comment.book.title}}</a></p>
+    {% endfor %}
+</div>
+{% endblock %}

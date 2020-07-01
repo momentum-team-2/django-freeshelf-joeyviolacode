@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book, Category
+from users.models import User
 from .forms import BookForm
 
 # Create your views here.
@@ -27,6 +28,13 @@ def show_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     categories = Category.objects.all()
     return render(request, 'core/show_book.html', { "book" : book, "categories" : categories })
+
+def show_user(request, pk): 
+    user = get_object_or_404(User, pk=pk)
+    comments = user.comments.all
+    return render(request, 'core/show_user.html', { "user": user, "comments" : comments})
+
+
 
 def mark_favorite(request, pk):
     book = get_object_or_404(Book, pk=pk)

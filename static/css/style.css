@@ -45,6 +45,13 @@ header {
     padding: 5px 0px;
 }
 
+.book-pane-left {
+    padding-left: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .book-title {
     font-size: 25px;
     margin-top: 10px;
@@ -55,8 +62,30 @@ header {
     padding-left: 10px;
 }
 
+.book-area {
+    display: flex;
+}
+
+.book-cover {
+    width: 175px;
+    height: auto;
+}
+
+.cover-area {
+    display: flex;
+    justify-content: space-around;
+}
+
+.book-cover-large {
+    width: 300px;
+    height: auto;
+}
+
+
 .book-info-area {
     padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .l-border {
@@ -86,4 +115,13 @@ header {
 
 .l-marg {
     margin-left: 4px;
+}
+
+.comment-info {
+    padding-left: 25px;
+    color: grey;
+}
+
+.comments-section {
+    margin-bottom: 100px;
 }

@@ -15,6 +15,9 @@
         <a href="{% url 'list_books_title' %}">title</a>
     </p>
     <div class="book-pane">
+        <div class=cover-area>
+            <img class="book-cover-large" src="{{ book.image_url }}" alt="{{book.title}} cover art">
+        </div>
         <div class="book-info">
             <p class="book-title">
                 <a class="book-link" href="{{book.url}}">{{book.title}}</a> by {{ book.author }}
@@ -35,6 +38,13 @@
                 <a href="#" class="favorite-link">Mark Book as Favorite</a>
             </p>
         </div>  
+    </div>
+    <div class="comments-section">
+        <h3 class="comments-header">Comments:</h3>
+        {% for comment in book.comments.all %}
+        <p class="comment">{{comment.body}}</p>
+        <p class="comment-info">by <a href="{% url 'show_user' pk=comment.author.pk %}">{{comment.author}}</a> on {{comment.date_added}}</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

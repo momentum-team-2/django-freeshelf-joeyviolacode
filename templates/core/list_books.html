@@ -17,26 +17,34 @@
     <p class="header-p">Recently-added Books</p>
     {% for book in books %}
     <div class="book-pane">
-        <div class="book-info">
-            <p class="book-title">
-                <a class="book-link" href="{{book.url}}">{{book.title}}</a> by {{ book.author }}
-            </p>
-            <p class="book-description">
-                {{ book.description }}
-            </p>
-        </div>
-        <div class="book-info-area">
-            <p>
-                <span class="favorited r-border line-pad">Favorited {{book.fave_count}} times</span>
-                <span class="date l-border r-border line-pad">Added on {{book.date_added}}</span>
-                <span class="category l-border r-border line-pad">Category: 
-                    <a class="category-link" href="{% url 'list_books_category' pk=book.category.pk %}">{{book.category.name}}</a>
-                </span>
-                <span class="detail l-border l-marg line-pad">  
-                    <a class="detail-link" href="{% url 'show_book' pk=book.pk %}">See Book Detail</a>
-                </span>
-            </p>
-        </div>  
+        <div class="book-area">
+            
+            <div class="book-pane-right">
+                <img class="book-cover" src="{{book.image_url}}" alt="{{book.title}} cover image">
+            </div>
+            <div class="book-pane-left">
+                <div class="book-info">
+                    <p class="book-title">
+                        <a class="book-link" href="{{book.url}}">{{book.title}}</a> by {{ book.author }}
+                    </p>
+                    <p class="book-description">
+                        {{ book.description }}
+                    </p>
+                </div>
+                <div class="book-info-area">
+                    <p>
+                        <span class="favorited r-border line-pad">Favorited {{book.fave_count}} times</span>
+                        <span class="date l-border r-border line-pad">Added on {{book.date_added}}</span>
+                        <span class="category l-border r-border line-pad">Category: 
+                            <a class="category-link" href="{% url 'list_books_category' pk=book.category.pk %}">{{book.category.name}}</a>
+                        </span>
+                        <span class="detail l-border l-marg line-pad">  
+                            <a class="detail-link" href="{% url 'show_book' pk=book.pk %}">See Book Detail</a>
+                        </span>
+                    </p>
+                </div>  
+            </div>
+        </div>    
     </div>
     {% endfor %}
 </div>
