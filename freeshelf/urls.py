@@ -29,6 +29,8 @@ urlpatterns = [
     path('books/mark_favorite/<int:pk>', core_views.mark_favorite, name="mark_favorite"),
     path('users/<int:pk>', core_views.show_user, name="show_user"),
     path('books/comment/<int:pk>', core_views.add_comment, name="add_comment"),
+    path('books/mark_not_favorite/<int:pk>', core_views.mark_not_favorite, name="mark_not_favorite"),
+    path('user/favorites', core_views.show_favorites, name="show_favorites")
 ]
 
 if settings.DEBUG:

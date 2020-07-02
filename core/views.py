@@ -49,10 +49,23 @@ def add_comment(request, pk):
         comment.save()
     return redirect(to="show_book", pk=pk)
 
-
-
 def mark_favorite(request, pk):
     book = get_object_or_404(Book, pk=pk)
     user = request.user
-    pass
+    book.favorited_by.add(user)
+    return redirect(to="show_book", pk=pk)
+
+def mark_not_favorite(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    user = request.user
+    book.favorited_by.remove(user)
+    return redirect(to="show_book", pk=pk)
+
+def show_favorites(request):
+    user = request.user
+    books = user.favorite_books.all()
+    categories = Category.objects.all()
+    return render(request, 'core/show_favorites.html', { "books":books, "categories":categories} )
+
+
 
