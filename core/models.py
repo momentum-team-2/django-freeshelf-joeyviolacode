@@ -19,6 +19,7 @@ class Book(models.Model):
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name="books")
     date_added = models.DateTimeField(auto_now_add=True)
+    favorited_by = models.ManyToManyField(User, related_name="favorite_books")
     fave_count = models.IntegerField(default=0)
 
     def __str__(self):
